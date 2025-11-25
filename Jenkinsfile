@@ -39,6 +39,8 @@ pipeline {
                     alwaysLinkToLastBuild: true,
                     allowMissing: true   // don't break if report is missing
                 ])
+                // Copy test-results into the report folder so links work
+                sh 'cp -r test-results playwright-report/test-results || true'
             }
         }
         stage('Archive Artifacts') {
