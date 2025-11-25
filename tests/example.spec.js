@@ -81,12 +81,16 @@ console.log(`time is : ${Date_Time}`);
  * @param {String} name -Name for the video file (e.g. 'Banner').
  */
 // Take screenshot
-async function takeScreenshot(page,name) {
+async function takeScreenshot(page,name,testInfo) {
 
     if(!page.isClosed()){
         try {
 
             await page.screenshot({ path: `screenshots/${name}_${Date_Time}.png`, fullPage: true });
+            const screenshotPath = `screenshots/${name}_${Date_Time}.png`;
+                            await page.screenshot({path:screenshotPath,fullPage:true});
+                            // This one will attach the every screenshot manually to the html report from screenshot folder
+                            await testInfo.attach(`${key}`,{path:screenshotPath,contentType:'image/png'});
         } catch (error) {
             console.error('⚠️ Screenshot error : '+error);
         }
@@ -520,7 +524,7 @@ test('Home Page', async({page,request},testInfo)=>{
         // Scroll to top
         await scrolltoTop(page);
         // take screenshot
-        await takeScreenshot(page,"HomePage");
+        await takeScreenshot(page,"HomePage",testInfo);
         // Logo checking
         const result =await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/imaginxlogo.svg","Logo","Home");
         // if(!result){await takeScreenshotEle(page,"img[alt='logo']","Logo")}
