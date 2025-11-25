@@ -43,7 +43,7 @@ pipeline {
         }
         stage('Archive Artifacts') {
             steps {
-                archiveArtifacts artifacts: 'test-results/**, playwright-report/**', fingerprint: true
+                archiveArtifacts artifacts: 'test-results/**,playwright-report/**', fingerprint: true
             }
         }
     }
