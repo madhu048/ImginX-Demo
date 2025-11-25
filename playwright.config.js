@@ -72,7 +72,7 @@ export default defineConfig({
       name: 'Google Chrome',
       use: { /*...devices['Desktop Chrome'],*/ channel: 'chrome',
               // The code for head less mode
-              headless:true,
+              headless:false,
               viewport: { width: 1920, height: 1080 }, // Force desktop size
               video: 'on', // Or 'on'
               screenshot:'on',

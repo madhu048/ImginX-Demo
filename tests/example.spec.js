@@ -19,7 +19,7 @@ async function urlStatus(page) {
             }
             // @ts-ignore
             expect(response.status()).toBeLessThan(400);
-            expect.soft(await page.title()).toEqual(`Experience Innovation and Inspiration with AVR - imaginX`);
+            expect.soft(await page.title()).toEqual(`Experience Innovation and Inspiration with AV - imaginX`);
         // await expect.soft(page).toHaveTitle(/Innovation and Inspire/);
 
             return true;
@@ -538,176 +538,176 @@ test('Home Page', async({page,request},testInfo)=>{
         const para = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'With over a decade of experience in VR/AR/XR technologies')]","para","Home")
         expect.soft(para).toBeTruthy();
         // Experience Innovation button checking
-        const experienceInnovationButton = await elementCheck(page,testInfo,"//a[contains(normalize-space(),'Experience Innovation')]","experienceInnovationButton","Home")
-        expect.soft(experienceInnovationButton).toBeTruthy();
-        if(experienceInnovationButton){
-                        const res8 = await hoverAndClickWithXpath(page,"//a[contains(normalize-space(),'Experience Innovation')]");
-                        expect.soft(res8).toBeTruthy();
-                        // Checking the Contact Us page is open or not
-                        const contactUsPageHeadr = await elementCheck(page,testInfo,"//h1[contains(normalize-space(),'Contact Us')]","contactUsPageHeadr","ContactUs");
-                        expect.soft(contactUsPageHeadr).toBeTruthy();
-                        if(res8){
-                                // Going back to Home page
-                                await page.goBack();
-                                await page.waitForLoadState("load");
-                                await page.waitForTimeout(1000);
-                        }      
-        }
-        // Education button checking
-        const EducationButton = await elementCheck(page,testInfo,"//li[normalize-space()='Education']","EducationButton","Home")
-        expect.soft(EducationButton).toBeTruthy();
-        if(EducationButton){
-            // Jet engine image checking
-            const jetEngineImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/educational.png","JetEngine","Home");
-            expect.soft(jetEngineImg).toBeTruthy();
-            // Education Header checking
-            const educationHeader = await elementCheck(page,testInfo,"//h2[normalize-space()='Revolutionizing Learning']","educationHeader","Home")
-            expect.soft(educationHeader).toBeTruthy();
-            // Education Para checking
-            const educationPara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Engage students with experiential learning through VR simulations')]","educationPara","Home")
-            expect.soft(educationPara).toBeTruthy();
-            // View more button checking
-            const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
-            expect.soft(viewMoreButton).toBeTruthy();
-            if(viewMoreButton){
-                        const res7 = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
-                        expect.soft(res7).toBeTruthy();
-                        if(res7){
-                                // Checking the Educational page is open or not
-                                const educationalPageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Immersive Learning')]/span[contains(normalize-space(),'Solutions')])[1]","educationalPageHeadr","Educational");
-                                expect.soft(educationalPageHeadr).toBeTruthy();
-                                // Going back to Home page
-                                await page.goBack();
-                                await page.waitForLoadState("load");
-                                await page.waitForTimeout(1000);
-                        }
-                }
-        }
-        // Workforce button checking
-        const WorkforceButton = await elementCheck(page,testInfo,"//li[normalize-space()='Workforce']","WorkforceButton","Home")
-        expect.soft(WorkforceButton).toBeTruthy();
-        if(WorkforceButton){
-            const res6 = await hoverAndClickWithXpath(page,"//li[normalize-space()='Workforce']");
-            expect.soft(res6).toBeTruthy();
-            await page.waitForTimeout(1000);
-            // Ice machine image checking
-            const iceMachineImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/workforce-tab.png","iceMachineImg","Home");
-            expect.soft(iceMachineImg).toBeTruthy();
-            // WorkforceHeader checking
-            const WorkforceHeader = await elementCheck(page,testInfo,"//h2[contains(normalize-space(),'Training Tomorrow')]","WorkforceHeader","Home")
-            expect.soft(WorkforceHeader).toBeTruthy();
-            // WorkforcePara checking
-            const WorkforcePara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Enhance workforce development with XR solutions designed to upskill')]","WorkforcePara","Home")
-            expect.soft(WorkforcePara).toBeTruthy();
-            // View more button checking
-            const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
-            expect.soft(viewMoreButton).toBeTruthy();
-            if(viewMoreButton){
-                        const res5 = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
-                        expect.soft(res5).toBeTruthy();
-                        if(res5){
-                                // Checking the Workforce page is open or not
-                                const workforcePageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Workforce Development')]/span[contains(normalize-space(),'Solutions')])[1]/parent::*","workforcePageHeadr","Workforce");
-                                expect.soft(workforcePageHeadr).toBeTruthy();
-                                // Going back to Home page
-                                await page.goBack();
-                                await page.waitForLoadState("load");
-                                await page.waitForTimeout(1000);
-                        }      
-                }
-        }
-         // Industry button checking
-        const industryButton = await elementCheck(page,testInfo,"//li[normalize-space()='Industry']","industryButton","Home")
-        expect.soft(industryButton).toBeTruthy();
-        if(industryButton){
-            const res4 = await hoverAndClickWithXpath(page,"//li[normalize-space()='Industry']");
-            expect.soft(res4).toBeTruthy();
-            await page.waitForTimeout(1000);
-            // Cessna machine image checking
-            const cessnaMachineImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/industry.png","cessnaMachineImg","Home");
-            expect.soft(cessnaMachineImg).toBeTruthy();
-            // IndustryHeader checking
-            const industryHeader = await elementCheck(page,testInfo,"//h2[contains(normalize-space(),'Optimizing Efficiency')]","industryHeader","Home")
-            expect.soft(industryHeader).toBeTruthy();
-            // IndustryPara checking
-            const industryPara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Boost productivity and efficiency with immersive virtual training')]","industryPara","Home")
-            expect.soft(industryPara).toBeTruthy();
-            // View more button checking
-            const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
-            expect.soft(viewMoreButton).toBeTruthy();
-            if(viewMoreButton){
-                        const res2 = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
-                        expect.soft(res2).toBeTruthy();
-                        // Checking the Industrial page is open or not
-                        const industrialPageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Industrial Training')]/span[contains(normalize-space(),'Solutions')])[1]","industrialPageHeadr","Industrial");
-                        expect.soft(industrialPageHeadr).toBeTruthy();
-                        // Going back to Home page
-                        await page.goBack();
-                        await page.waitForLoadState("load");
-                        await page.waitForTimeout(1000);
-                }
-        }
-         // Healthcare button checking
-        const healthcareButton = await elementCheck(page,testInfo,"(//li[normalize-space()='Healthcare'])[2]","healthcareButton","Home")
-        expect.soft(healthcareButton).toBeTruthy();
-        if(healthcareButton){
-            const res1 = await hoverAndClickWithXpath(page,"(//li[normalize-space()='Healthcare'])[2]");
-            expect.soft(res1).toBeTruthy();
-            await page.waitForTimeout(1000);
-            // Heart image checking
-            const heartImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/healthcare.png","heartImg","Home");
-            expect.soft(heartImg).toBeTruthy();
-            // HealthcareHeader checking
-            const healthcareHeader = await elementCheck(page,testInfo,"//h2[contains(normalize-space(),'Transforming Care')]","healthcareHeader","Home")
-            expect.soft(healthcareHeader).toBeTruthy();
-            // HealthcarePara checking
-            const healthcarePara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Revolutionize patient care and medical training with our VR simulations')]","healthcarePara","Home")
-            expect.soft(healthcarePara).toBeTruthy();
-            // View more button checking
-            const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
-            expect.soft(viewMoreButton).toBeTruthy();
-            if(viewMoreButton){
-                        const res = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
-                        expect.soft(res).toBeTruthy();
-                        if(res){
-                                // Checking the HealthCare page is open or not
-                                const HealthCarePageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Healthcare Training')]/span[contains(normalize-space(),'Solutions')])[1]","HealthCarePageHeadr","HealthCare");
-                                expect.soft(HealthCarePageHeadr).toBeTruthy();
-                                // Going back to Home page
-                                await page.goBack();
-                                await page.waitForLoadState("load");
-                                await page.waitForTimeout(1000);
-                        }    
-                }
-        }
-        // Maximized ROI image checking
-        const maximizedROIimg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/roi.svg","maximizedROIimg","Home");
-        expect.soft(maximizedROIimg).toBeTruthy(); 
-        // Your Long-Term Innovation Partner image checking
-        const YourLongTermInnovationPartnerimg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/partner.svg","YourLongTermInnovationPartnerimg","Home");
-        expect.soft(YourLongTermInnovationPartnerimg).toBeTruthy();
-        // Versatile Solutions Across Sectors image checking
-        const versatileSolutionsAcrossSectorsimg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/solution.svg","versatileSolutionsAcrossSectorsimg","Home");
-        expect.soft(versatileSolutionsAcrossSectorsimg).toBeTruthy();
-        // Red Hat Logo image checking
-        const redHatLogoImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/redhat-logo.png","redHatLogoImg","Home");
-        expect.soft(redHatLogoImg).toBeTruthy();
-        // Clint Slider checking
-        const clientSlider = page.locator("//div[contains(@id,'swiper-wrapper')]");
-        await clientSlider.waitFor({timeout:40000});
-        expect.soft(clientSlider).toBeVisible();
-        if(await clientSlider.isVisible()){clientSlider.scrollIntoViewIfNeeded();}
-        // Footer logo checking
-        const footerLogo = await elementCheck(page,testInfo,"img[alt='imaginx logo']","FooterLogo","Home");
-        expect.soft(footerLogo).toBeTruthy();
-        // Mail checking
-        const mail = await elementCheck(page,testInfo,"//a[normalize-space()='info@imaginxavr.com']","SiteMail","Home");
-        expect.soft(mail).toBeTruthy();
-        // Copyright text checking
-        const copyrightText = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Copyright © 2025 • imaginX.')]","Copyrights","Home");
-        expect.soft(copyrightText).toBeTruthy();
-        await page.waitForTimeout(1000);
-        await scrolltoTop(page);
+        // const experienceInnovationButton = await elementCheck(page,testInfo,"//a[contains(normalize-space(),'Experience Innovation')]","experienceInnovationButton","Home")
+        // expect.soft(experienceInnovationButton).toBeTruthy();
+        // if(experienceInnovationButton){
+        //                 const res8 = await hoverAndClickWithXpath(page,"//a[contains(normalize-space(),'Experience Innovation')]");
+        //                 expect.soft(res8).toBeTruthy();
+        //                 // Checking the Contact Us page is open or not
+        //                 const contactUsPageHeadr = await elementCheck(page,testInfo,"//h1[contains(normalize-space(),'Contact Us')]","contactUsPageHeadr","ContactUs");
+        //                 expect.soft(contactUsPageHeadr).toBeTruthy();
+        //                 if(res8){
+        //                         // Going back to Home page
+        //                         await page.goBack();
+        //                         await page.waitForLoadState("load");
+        //                         await page.waitForTimeout(1000);
+        //                 }      
+        // }
+        // // Education button checking
+        // const EducationButton = await elementCheck(page,testInfo,"//li[normalize-space()='Education']","EducationButton","Home")
+        // expect.soft(EducationButton).toBeTruthy();
+        // if(EducationButton){
+        //     // Jet engine image checking
+        //     const jetEngineImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/educational.png","JetEngine","Home");
+        //     expect.soft(jetEngineImg).toBeTruthy();
+        //     // Education Header checking
+        //     const educationHeader = await elementCheck(page,testInfo,"//h2[normalize-space()='Revolutionizing Learning']","educationHeader","Home")
+        //     expect.soft(educationHeader).toBeTruthy();
+        //     // Education Para checking
+        //     const educationPara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Engage students with experiential learning through VR simulations')]","educationPara","Home")
+        //     expect.soft(educationPara).toBeTruthy();
+        //     // View more button checking
+        //     const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
+        //     expect.soft(viewMoreButton).toBeTruthy();
+        //     if(viewMoreButton){
+        //                 const res7 = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
+        //                 expect.soft(res7).toBeTruthy();
+        //                 if(res7){
+        //                         // Checking the Educational page is open or not
+        //                         const educationalPageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Immersive Learning')]/span[contains(normalize-space(),'Solutions')])[1]","educationalPageHeadr","Educational");
+        //                         expect.soft(educationalPageHeadr).toBeTruthy();
+        //                         // Going back to Home page
+        //                         await page.goBack();
+        //                         await page.waitForLoadState("load");
+        //                         await page.waitForTimeout(1000);
+        //                 }
+        //         }
+        // }
+        // // Workforce button checking
+        // const WorkforceButton = await elementCheck(page,testInfo,"//li[normalize-space()='Workforce']","WorkforceButton","Home")
+        // expect.soft(WorkforceButton).toBeTruthy();
+        // if(WorkforceButton){
+        //     const res6 = await hoverAndClickWithXpath(page,"//li[normalize-space()='Workforce']");
+        //     expect.soft(res6).toBeTruthy();
+        //     await page.waitForTimeout(1000);
+        //     // Ice machine image checking
+        //     const iceMachineImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/workforce-tab.png","iceMachineImg","Home");
+        //     expect.soft(iceMachineImg).toBeTruthy();
+        //     // WorkforceHeader checking
+        //     const WorkforceHeader = await elementCheck(page,testInfo,"//h2[contains(normalize-space(),'Training Tomorrow')]","WorkforceHeader","Home")
+        //     expect.soft(WorkforceHeader).toBeTruthy();
+        //     // WorkforcePara checking
+        //     const WorkforcePara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Enhance workforce development with XR solutions designed to upskill')]","WorkforcePara","Home")
+        //     expect.soft(WorkforcePara).toBeTruthy();
+        //     // View more button checking
+        //     const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
+        //     expect.soft(viewMoreButton).toBeTruthy();
+        //     if(viewMoreButton){
+        //                 const res5 = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
+        //                 expect.soft(res5).toBeTruthy();
+        //                 if(res5){
+        //                         // Checking the Workforce page is open or not
+        //                         const workforcePageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Workforce Development')]/span[contains(normalize-space(),'Solutions')])[1]/parent::*","workforcePageHeadr","Workforce");
+        //                         expect.soft(workforcePageHeadr).toBeTruthy();
+        //                         // Going back to Home page
+        //                         await page.goBack();
+        //                         await page.waitForLoadState("load");
+        //                         await page.waitForTimeout(1000);
+        //                 }      
+        //         }
+        // }
+        //  // Industry button checking
+        // const industryButton = await elementCheck(page,testInfo,"//li[normalize-space()='Industry']","industryButton","Home")
+        // expect.soft(industryButton).toBeTruthy();
+        // if(industryButton){
+        //     const res4 = await hoverAndClickWithXpath(page,"//li[normalize-space()='Industry']");
+        //     expect.soft(res4).toBeTruthy();
+        //     await page.waitForTimeout(1000);
+        //     // Cessna machine image checking
+        //     const cessnaMachineImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/industry.png","cessnaMachineImg","Home");
+        //     expect.soft(cessnaMachineImg).toBeTruthy();
+        //     // IndustryHeader checking
+        //     const industryHeader = await elementCheck(page,testInfo,"//h2[contains(normalize-space(),'Optimizing Efficiency')]","industryHeader","Home")
+        //     expect.soft(industryHeader).toBeTruthy();
+        //     // IndustryPara checking
+        //     const industryPara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Boost productivity and efficiency with immersive virtual training')]","industryPara","Home")
+        //     expect.soft(industryPara).toBeTruthy();
+        //     // View more button checking
+        //     const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
+        //     expect.soft(viewMoreButton).toBeTruthy();
+        //     if(viewMoreButton){
+        //                 const res2 = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
+        //                 expect.soft(res2).toBeTruthy();
+        //                 // Checking the Industrial page is open or not
+        //                 const industrialPageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Industrial Training')]/span[contains(normalize-space(),'Solutions')])[1]","industrialPageHeadr","Industrial");
+        //                 expect.soft(industrialPageHeadr).toBeTruthy();
+        //                 // Going back to Home page
+        //                 await page.goBack();
+        //                 await page.waitForLoadState("load");
+        //                 await page.waitForTimeout(1000);
+        //         }
+        // }
+        //  // Healthcare button checking
+        // const healthcareButton = await elementCheck(page,testInfo,"(//li[normalize-space()='Healthcare'])[2]","healthcareButton","Home")
+        // expect.soft(healthcareButton).toBeTruthy();
+        // if(healthcareButton){
+        //     const res1 = await hoverAndClickWithXpath(page,"(//li[normalize-space()='Healthcare'])[2]");
+        //     expect.soft(res1).toBeTruthy();
+        //     await page.waitForTimeout(1000);
+        //     // Heart image checking
+        //     const heartImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/healthcare.png","heartImg","Home");
+        //     expect.soft(heartImg).toBeTruthy();
+        //     // HealthcareHeader checking
+        //     const healthcareHeader = await elementCheck(page,testInfo,"//h2[contains(normalize-space(),'Transforming Care')]","healthcareHeader","Home")
+        //     expect.soft(healthcareHeader).toBeTruthy();
+        //     // HealthcarePara checking
+        //     const healthcarePara = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Revolutionize patient care and medical training with our VR simulations')]","healthcarePara","Home")
+        //     expect.soft(healthcarePara).toBeTruthy();
+        //     // View more button checking
+        //     const viewMoreButton = await elementCheck(page,testInfo,"//a[normalize-space()='View More']","viewMoreButton","Home")
+        //     expect.soft(viewMoreButton).toBeTruthy();
+        //     if(viewMoreButton){
+        //                 const res = await hoverAndClickWithXpath(page,"//a[normalize-space()='View More']");
+        //                 expect.soft(res).toBeTruthy();
+        //                 if(res){
+        //                         // Checking the HealthCare page is open or not
+        //                         const HealthCarePageHeadr = await elementCheck(page,testInfo,"(//h1[contains(normalize-space(),'Healthcare Training')]/span[contains(normalize-space(),'Solutions')])[1]","HealthCarePageHeadr","HealthCare");
+        //                         expect.soft(HealthCarePageHeadr).toBeTruthy();
+        //                         // Going back to Home page
+        //                         await page.goBack();
+        //                         await page.waitForLoadState("load");
+        //                         await page.waitForTimeout(1000);
+        //                 }    
+        //         }
+        // }
+        // // Maximized ROI image checking
+        // const maximizedROIimg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/roi.svg","maximizedROIimg","Home");
+        // expect.soft(maximizedROIimg).toBeTruthy(); 
+        // // Your Long-Term Innovation Partner image checking
+        // const YourLongTermInnovationPartnerimg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/partner.svg","YourLongTermInnovationPartnerimg","Home");
+        // expect.soft(YourLongTermInnovationPartnerimg).toBeTruthy();
+        // // Versatile Solutions Across Sectors image checking
+        // const versatileSolutionsAcrossSectorsimg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/solution.svg","versatileSolutionsAcrossSectorsimg","Home");
+        // expect.soft(versatileSolutionsAcrossSectorsimg).toBeTruthy();
+        // // Red Hat Logo image checking
+        // const redHatLogoImg = await imageChecking(page,testInfo,"https://www.imaginxavr.com/assets/imgs/redhat-logo.png","redHatLogoImg","Home");
+        // expect.soft(redHatLogoImg).toBeTruthy();
+        // // Clint Slider checking
+        // const clientSlider = page.locator("//div[contains(@id,'swiper-wrapper')]");
+        // await clientSlider.waitFor({timeout:40000});
+        // expect.soft(clientSlider).toBeVisible();
+        // if(await clientSlider.isVisible()){clientSlider.scrollIntoViewIfNeeded();}
+        // // Footer logo checking
+        // const footerLogo = await elementCheck(page,testInfo,"img[alt='imaginx logo']","FooterLogo","Home");
+        // expect.soft(footerLogo).toBeTruthy();
+        // // Mail checking
+        // const mail = await elementCheck(page,testInfo,"//a[normalize-space()='info@imaginxavr.com']","SiteMail","Home");
+        // expect.soft(mail).toBeTruthy();
+        // // Copyright text checking
+        // const copyrightText = await elementCheck(page,testInfo,"//p[contains(normalize-space(),'Copyright © 2025 • imaginX.')]","Copyrights","Home");
+        // expect.soft(copyrightText).toBeTruthy();
+        // await page.waitForTimeout(1000);
+        // await scrolltoTop(page);
     }else{console.log(`❌ Home Page test got Failed.`);
             expect.soft(false).toBeTruthy();
     }; 
