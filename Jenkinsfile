@@ -37,7 +37,7 @@ pipeline {
                     reportName: 'Playwright Report',  // name shown in Jenkins UI
                     keepAll: true,                    // keep reports for each build
                     alwaysLinkToLastBuild: true,      // link to latest report
-                    allowMissing: true               // allow publishing even if tests failed
+                    allowMissing: false               // allow publishing even if tests failed
                 ])
             }
         }
