@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Store your Teams webhook URL here
         TEAMS_WEBHOOK = 'https://imaginxavr.webhook.office.com/webhookb2/2d47e3e4-7bde-4804-9f1c-07cdc6126f5c@713a5df4-ce37-4131-8bc8-8f2c3415624f/IncomingWebhook/871b1a786fb84b408de72a7954932677/9296219f-afc4-4e8b-9a5c-ad73eb12cb2b/V2uL5xrIWZKlvyE2L9vmA7uzPmmBX2y81OZ7SjVZMHzys1'
     }
 
@@ -14,30 +13,31 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Replace with your Git repo URL and branch
                 git branch: 'main', url: 'https://github.com/madhu048/ImginX-Demo.git'
             }
         }
 
         stage('Install & Test') {
             steps {
-                // Run all commands needed for Playwright
-                bat 'npm ci'
-                bat 'npx playwright install'
-                bat 'npx playwright test --reporter=html --output=playwright-report'
+                // Run tests but don't abort pipeline if they fail
+                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                    bat 'npm ci'
+                    bat 'npx playwright install'
+                    bat 'npx playwright test --reporter=html --output=playwright-report'
+                }
             }
         }
 
         stage('Publish Report') {
             steps {
-                // Publish Playwright HTML report in Jenkins
+                // Always try to publish the report, even if tests failed
                 publishHTML([
-                    reportDir: 'playwright-report',   // folder where Playwright puts HTML report
-                    reportFiles: 'index.html',        // entry file
-                    reportName: 'Playwright Report',  // name shown in Jenkins UI
-                    keepAll: true,                    // keep reports for each build
-                    alwaysLinkToLastBuild: true,      // link to latest report
-                    allowMissing: false               // allow publishing even if tests failed
+                    reportDir: 'playwright-report',
+                    reportFiles: 'index.html',
+                    reportName: 'Playwright Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: true   // don't break if report is missing
                 ])
             }
         }
