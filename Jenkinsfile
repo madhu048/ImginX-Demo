@@ -22,11 +22,9 @@ pipeline {
         stage('Install & Test') {
             steps {
                 // Run all commands needed for Playwright
-                bat '''
-                    npm ci
-                    npx playwright install
-                    npx playwright test --reporter=html
-                '''
+                bat 'npm ci'
+                bat 'npx playwright install'
+                bat 'npx playwright test --reporter=html'
             }
         }
 
