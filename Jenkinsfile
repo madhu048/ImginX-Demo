@@ -41,6 +41,11 @@ pipeline {
                 ])
             }
         }
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'test-results/**', fingerprint: true
+            }
+        }
     }
 
     post {
