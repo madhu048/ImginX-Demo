@@ -90,7 +90,7 @@ async function takeScreenshot(page,name,testInfo) {
             const screenshotPath = `screenshots/${name}_${Date_Time}.png`;
                             await page.screenshot({path:screenshotPath,fullPage:true});
                             // This one will attach the every screenshot manually to the html report from screenshot folder
-                            await testInfo.attach(`${key}`,{path:screenshotPath,contentType:'image/png'});
+                            await testInfo.attach(`${name}`,{path:screenshotPath,contentType:'image/png'});
         } catch (error) {
             console.error('⚠️ Screenshot error : '+error);
         }
