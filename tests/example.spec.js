@@ -19,7 +19,7 @@ async function urlStatus(page) {
             }
             // @ts-ignore
             expect(response.status()).toBeLessThan(400);
-            expect.soft(await page.title()).toEqual(`Experience Innovation and Inspiration with AV - imaginX`);
+            expect.soft(await page.title()).toEqual(`Experience Innovation and Inspiration with AVR - imaginX`);
         // await expect.soft(page).toHaveTitle(/Innovation and Inspire/);
 
             return true;
