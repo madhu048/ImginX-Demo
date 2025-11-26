@@ -525,6 +525,7 @@ test.afterEach(async ({ page }, testInfo) => {
       body: Buffer.from(page.url())
     });
   }
+});
 // Home page checking
 test('Home Page', async({page,request},testInfo)=>{
     if(await urlStatus(page)){
