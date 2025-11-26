@@ -1,5 +1,4 @@
 
-import { test } from '@playwright/test';
 // This code will clean the screenshot folder for every new execution of project.
 const fs = require('fs-extra');
 
@@ -35,12 +34,3 @@ module.exports = async () => {
   }
 };
 
-test.afterEach(async ({ page }, testInfo) => {
-  if (testInfo.status !== testInfo.expectedStatus) {
-    testInfo.attachments.push({
-      name: 'failed-url',
-      contentType: 'text/plain',
-      body: Buffer.from(page.url())
-    });
-  }
-});
