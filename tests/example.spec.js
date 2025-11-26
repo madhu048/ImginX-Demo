@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 import { error } from "console";
 import { request } from "https";
-
+import fs from 'fs';
 // Browser opening for every test
 /**
  * @param {import("playwright-core").Page} page
@@ -519,6 +519,9 @@ async function elementCoordinates(page,elementXpath,elementXvalue,elementYvalue,
 // Home page checking
 test('Home Page', async({page,request},testInfo)=>{
     if(await urlStatus(page)){
+        const testUrl = page.url();
+        await page.goto(testUrl);
+        fs.writeFileSync('tested_url.txt', testUrl);
         // Scroll to bottom
         await scrollToBottom(page,300,500);
         // Scroll to top
