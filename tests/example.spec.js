@@ -516,16 +516,6 @@ async function elementCoordinates(page,elementXpath,elementXvalue,elementYvalue,
                 return false;
         }     
 }
-test.afterEach(async ({ page }, testInfo) => {
-  if (testInfo.status !== testInfo.expectedStatus) {
-    // Attach the URL of the failed page to the test result
-    testInfo.attachments.push({
-      name: 'failed-url',
-      contentType: 'text/plain',
-      body: Buffer.from(page.url())
-    });
-  }
-});
 // Home page checking
 test('Home Page', async({page,request},testInfo)=>{
     if(await urlStatus(page)){
