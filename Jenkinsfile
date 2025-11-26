@@ -84,13 +84,13 @@ pipeline {
     post {
         success {
             bat """
-            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"00FF00\\",\\"sections\\":[{\\"activityTitle\\":\\"ImaginX Website: Loaded Successfully!\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"SUCCESS\\"},{\\"name\\":\\"URL Tested\\",\\"value\\":\\"${env.TESTED_URL}\\"}]}]}" "${TEAMS_WEBHOOK}"
+            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"00FF00\\",\\"sections\\":[{\\"activityTitle\\":\\"ImaginX Website: Loaded Successfully!\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"SUCCESS\\"},{\\"name\\":\\"URL Tested\\",\\"value\\":\\"${TESTED_URL}\\"}]}]}" "${TEAMS_WEBHOOK}"
             """
         }
  
         failure {
             bat """
-            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"FF0000\\",\\"sections\\":[{\\"activityTitle\\":\\"⚠️ ImaginX Website Test Failed\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"FAILURE\\"},{\\"name\\":\\"URL Tested\\",\\"value\\":\\"${env.TESTED_URL}\\"},{\\"name\\":\\"Failed URLs\\",\\"value\\":\\"${env.FAILED_URLS}\\"}]}]}" "${TEAMS_WEBHOOK}"
+            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"FF0000\\",\\"sections\\":[{\\"activityTitle\\":\\"⚠️ ImaginX Website Test Failed\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"FAILURE\\"},{\\"name\\":\\"URL Tested\\",\\"value\\":\\"${TESTED_URL}\\"},{\\"name\\":\\"Failed URLs\\",\\"value\\":\\"${env.FAILED_URLS}\\"}]}]}" "${TEAMS_WEBHOOK}"
             """
         }
     }
