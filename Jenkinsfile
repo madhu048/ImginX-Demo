@@ -23,7 +23,7 @@ pipeline {
                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
                     bat 'npm ci'
                     bat 'npx playwright install'
-                    bat 'bat 'npx playwright test --reporter=html,json --output=playwright-report'
+                    bat 'npx playwright test --reporter=html,json --output=playwright-report'
                 }
             }
         }
