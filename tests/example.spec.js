@@ -519,9 +519,12 @@ async function elementCoordinates(page,elementXpath,elementXvalue,elementYvalue,
 // Home page checking
 test('Home Page', async({page,request},testInfo)=>{
     if(await urlStatus(page)){
-        const testUrl = page.url();
-        await page.goto(testUrl);
+         const testUrl = page.url();
+ 
+        // ⭐ Save URL for Jenkins
         fs.writeFileSync('tested_url.txt', testUrl);
+ 
+       
         // Scroll to bottom
         await scrollToBottom(page,300,500);
         // Scroll to top
