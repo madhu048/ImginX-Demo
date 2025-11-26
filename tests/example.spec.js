@@ -517,6 +517,7 @@ async function elementCoordinates(page,elementXpath,elementXvalue,elementYvalue,
         }     
 }
 // Home page checking
+const fs = require('fs');
 test('Home Page', async({page,request},testInfo)=>{
     if(await urlStatus(page)){
          const testUrl = page.url();
