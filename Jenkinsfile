@@ -46,6 +46,7 @@ pipeline {
         stage('Collect Failed URLs') {
             steps {
                 script {
+                    def testedUrl = readFile "https://github.com/madhu048/ImginX-Demo.git/tested_url.txt"
                     def results = readJSON file: env.TEST_RESULTS_JSON
                     def failedUrls = []
                     results.suites.each { suite ->
@@ -75,12 +76,12 @@ pipeline {
     post {
         success {
             bat """
-            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"00FF00\\",\\"sections\\":[{\\"activityTitle\\":\\"ImaginX Website: Loading smoothly with all basic content.\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"${currentBuild.currentResult}\\"},{\\"name\\":\\"URL\\",\\"value\\":\\"${env.BUILD_URL}\\"}]}]}" "${TEAMS_WEBHOOK}"
+            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"00FF00\\",\\"sections\\":[{\\"activityTitle\\":\\"ImaginX Website: Loading smoothly with all basic content.\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"${currentBuild.currentResult}\\"},{\\"name\\":\\"URL\\",\\"value\\":\\"${testedUrl}\\"}]}]}" "${TEAMS_WEBHOOK}"
             """
         }
         failure {
             bat """
-            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"FF0000\\",\\"sections\\":[{\\"activityTitle\\":\\"ImaginX Website: Having issue with webpage.\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"${currentBuild.currentResult}\\"},{\\"name\\":\\"Failed URLs\\",\\"value\\":\\"${env.FAILED_URLS}\\"}]}]}" "${TEAMS_WEBHOOK}"
+            curl -H "Content-Type: application/json" -d "{\\"@type\\":\\"MessageCard\\",\\"@context\\":\\"http://schema.org/extensions\\",\\"summary\\":\\"ImaginX Website Status\\",\\"themeColor\\":\\"FF0000\\",\\"sections\\":[{\\"activityTitle\\":\\"ImaginX Website: Having issue with webpage.\\",\\"facts\\":[{\\"name\\":\\"Job\\",\\"value\\":\\"${env.JOB_NAME}\\"},{\\"name\\":\\"Build\\",\\"value\\":\\"${env.BUILD_NUMBER}\\"},{\\"name\\":\\"Status\\",\\"value\\":\\"${currentBuild.currentResult}\\"},{\\"name\\":\\"Failed URLs\\",\\"value\\":\\"${testedUrl}\\"}]}]}" "${TEAMS_WEBHOOK}"
             """
         }
     }
